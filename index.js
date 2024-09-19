@@ -19,10 +19,10 @@ app.get("/", function (req, res) {
 });
 
 app.get("/api/:date", (req, res) => {
-  let d = req.params.date;
-  if (/^\d+$/.test(d)) d = Number(d);
+  let dt = req.params.date;
+  if (/^\d+$/.test(dt)) dt = Number(dt);
 
-  const date = new Date(d);
+  const date = new Date(dt);
 
   if (isNaN(date.getTime())) return res.json({ error: "Invalid Date" });
   const unixTimeSeconds = Math.floor(date.getTime() / 1000);
